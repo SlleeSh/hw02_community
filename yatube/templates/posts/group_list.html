@@ -1,0 +1,20 @@
+<!DOCTYPE html> <!-- Используется html 5 версии -->
+{% extends 'base.html' %}
+<html lang="ru"> <!-- Язык сайта - русский -->
+<body>
+{% block content %}
+<h3>все записи группы{{ group }}</h3>
+{% for post in posts %}
+  <ul>
+    <li>
+      Автор: {{ post.author.get_full_name }}
+    </li>
+    <li>
+      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+    </li>
+  </ul>
+  <p>{{ post.text }}</p>
+{% endfor %}
+{% endblock %}
+</body>
+</html>
