@@ -21,7 +21,7 @@ def group_posts(request, slug):
     template = 'posts/group_list.html'
     text = "Здесь будет информация о группах проекта Yatube"
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group)[:settings.NOM_POST]
+    posts = group.posts.all()[:settings.NOM_POST]
     context = {
         'text': text,
         'group': group,
