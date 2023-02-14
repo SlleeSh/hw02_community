@@ -1,13 +1,15 @@
-  <ul>
+<ul>
     <li>
-      Автор: {{ post.author.get_full_name }}
+        Автор: {{ post.author.get_full_name }}
     </li>
     <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+        Дата публикации: {{ post.pub_date|date:"d E Y" }}
     </li>
-  </ul>
-  <p>{{ post.text }}</p>
-  {% if post.group and not slug %}
-  <a href="{% url 'posts:group' post.group.slug %}">все записи группы</a>
-{% endif %}
-  {% if not forloop.last %}<hr>{% endif %}
+</ul>
+<p>{{ post.text }}</p>
+{% if post.group and not slug %}
+    <a href="{% url 'posts:group' post.group.slug %}">все записи группы</a>
+{% endif %}<br>
+<a href="{% url 'posts:post_detail' post.id %}">подробная информация </a>
+{% if not forloop.last %}
+    <hr>{% endif %}

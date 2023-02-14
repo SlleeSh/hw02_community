@@ -4,4 +4,5 @@
 {% for post in posts %}
 {% include 'includes/post_cart.html' with slug=post.group.slug %}
 {% endfor %}
+{% include 'includes/paginator.html' %}
 {% endblock %}

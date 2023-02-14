@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for post in posts %}
+{% for post in page_obj %}
 {% include 'includes/post_cart.html' %}
 {% endfor %}
+{% include 'includes/paginator.html' %}
 {% endblock %}
